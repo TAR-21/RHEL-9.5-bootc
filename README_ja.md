@@ -13,6 +13,7 @@
 ```bash
 sudo dnf install podman -y
 podman login registry.redhat.io
+sudo podman login registry.redhat.io
 ```
 
 ---
