@@ -13,6 +13,7 @@ This guide explains how to create a **bootc-based, RHEL 9.5 custom OS image** us
 ```bash
 sudo dnf install podman -y
 podman login registry.redhat.io
+sudo podman login registry.redhat.io
 ```
 
 ---
