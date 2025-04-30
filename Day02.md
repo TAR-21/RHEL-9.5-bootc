@@ -93,5 +93,3 @@ Then check:
 ```bash
 rpm-ostree status
 ```
-
----
