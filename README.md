@@ -1,4 +1,4 @@
-# 📘 RHEL 9.5 bootc Documentation Index / ドキュメント目次
+# RHEL 9.5 bootc Documentation Index / ドキュメント目次
 
 This repository contains a step-by-step record of building and testing a custom RHEL 9.5 bootc-based system on bare metal.
 
