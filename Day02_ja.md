@@ -62,7 +62,7 @@ podman push quay.io/<USERNAME>/custom-rhel95-bootc:2.0.0
 
 ---
 
-## 🖧 bootc インストール済みマシン側（ベアメタルまたはVM）
+## bootc インストール済みマシン側（ベアメタルまたはVM）
 
 ### ステップ 4：現在の状態を確認
 
