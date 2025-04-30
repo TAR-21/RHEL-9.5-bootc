@@ -1,14 +1,14 @@
 # RHEL 9.5 bootc-based Bare Metal Installation Guide
 
-## 🧭 Overview
+## Overview
 
 This guide explains how to create a **bootc-based, RHEL 9.5 custom OS image** using `bootc-image-builder`, convert it into an ISO file, and install it on a bare-metal machine. No Kickstart file is required, and this method is fully compatible with Red Hat's latest **Image Mode** deployment model.
 
 ---
 
-## ✅ 1. Preparation (on your workstation)
+## 1. Preparation (on your workstation)
 
-### 🔹 1-1. Requirements
+### 1-1. Requirements
 
 ```bash
 sudo dnf install podman -y
@@ -17,7 +17,7 @@ podman login registry.redhat.io
 
 ---
 
-### 🔹 1-2. Create working directories
+### 1-2. Create working directories
 
 ```bash
 mkdir -p ~/rhel9.5-imagemode/output
@@ -26,7 +26,7 @@ cd ~/rhel9.5-imagemode
 
 ---
 
-### 🔹 1-3. Create a `Containerfile` (RHEL bootc base)
+### 1-3. Create a `Containerfile` (RHEL bootc base)
 
 Create a file named `Containerfile` with the following content:
 
@@ -50,7 +50,7 @@ CMD ["/usr/lib/systemd/systemd"]
 
 ---
 
-### 🔹 1-4. Build and push the container image
+### 1-4. Build and push the container image
 
 ```bash
 podman build -t quay.io/USERNAME/custom-rhel95-bootc:1.0.0 .
@@ -61,7 +61,7 @@ podman push quay.io/USERNAME/custom-rhel95-bootc:1.0.0
 
 ---
 
-## ✅ 2. Generate a bootable ISO using `bootc-image-builder`
+## 2. Generate a bootable ISO using `bootc-image-builder`
 
 ```bash
 sudo podman run --rm -it --privileged \
@@ -77,9 +77,9 @@ sudo podman run --rm -it --privileged \
 
 ---
 
-## ✅ 3. Install on bare-metal hardware
+## 3. Install on bare-metal hardware
 
-### 🔹 Write the ISO to a USB stick
+### Write the ISO to a USB stick
 
 ```bash
 sudo dd if=~/rhel9.5-imagemode/output/install.iso of=/dev/sdX bs=4M status=progress
@@ -87,14 +87,14 @@ sudo dd if=~/rhel9.5-imagemode/output/install.iso of=/dev/sdX bs=4M status=progr
 
 > Replace `sdX` with your actual USB device name.
 
-### 🔹 BIOS/UEFI settings
+### BIOS/UEFI settings
 
 - Enable **UEFI Boot**
 - Disable **Secure Boot**
 
 ---
 
-## ✅ 4. After booting: verify system
+## 4. After booting: verify system
 
 ### Default credentials:
 
@@ -107,15 +107,3 @@ sudo dd if=~/rhel9.5-imagemode/output/install.iso of=/dev/sdX bs=4M status=progr
 rpm-ostree status
 cat /etc/os-release
 ```
-
----
-
-## ✅ Common enhancements and operational tips
-
-| Feature             | Example                                                                 |
-|---------------------|-------------------------------------------------------------------------|
-| Preload SSH key     | `RUN mkdir -p /home/demo/.ssh && echo "pubkey" > authorized_keys`       |
-| Add MicroShift      | `RUN rpm-ostree install microshift`                                     |
-| Enable SELinux relabeling | `RUN touch /.autorelabel`                                        |
-
----
