@@ -38,8 +38,10 @@ RUN rpm-ostree install \
     NetworkManager \
     openssh-server && \
     useradd demo && echo "demo:redhat" | chpasswd && \
+    usermod -aG wheel demo && \
+    echo "%wheel ALL=(ALL) NOPASSWD: ALL" >> /etc/sudoers && \
     systemctl enable sshd && \
-    echo "bootc-demo" > /etc/hostname && \
+    echo "bootc-demo-v1" > /etc/hostname && \
     rpm-ostree cleanup -m && \
     ostree container commit
 
