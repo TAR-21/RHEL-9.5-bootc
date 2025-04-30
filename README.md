@@ -1,26 +1,30 @@
-# RHEL 9.5 bootc ドキュメント集
+# 📘 RHEL 9.5 bootc Documentation Index / ドキュメント目次
 
-このリポジトリは、RHEL 9.5 ベースの bootc イメージを使ったベアメタル展開とアップグレードの体験内容を記録しています。
+This repository contains a step-by-step record of building and testing a custom RHEL 9.5 bootc-based system on bare metal.
 
----
-
-## ドキュメント一覧
-
-### Day 01: 基本イメージ作成と初期インストール
-
-- [Day01.md](./Day01.md) - 英語版: 初期イメージ作成から ISO 展開まで
-- [Day01_ja.md](./Day01_ja.md) - 日本語版
-
-### Day 02: nginx組み込み・switch/rollback体験
-
-- [Day02.md](./Day02.md) - 英語版: nginx 組み込みと bootc upgrade の体験
-- [Day02_ja.md](./Day02_ja.md) - 日本語版
+このリポジトリには、RHEL 9.5 ベースの bootc システムをベアメタルに構築・検証した手順が記録されています。
 
 ---
 
-## リポジトリの目的
+## Table of Contents / ドキュメント一覧
 
-- bootc を活用した **OS イメージベース展開** の実験と共有
-- 日本語・英語両対応のドキュメント整備
-- 将来的な MicroShift や edge 展開のベースにすることを想定
+### Day 01: Build & Install Basic Image / ベースイメージの作成とインストール
+
+- [Day01.md](./Day01.md) — English: From image build to ISO deployment  
+- [Day01_ja.md](./Day01_ja.md) — 日本語：イメージ作成と ISO インストールの基本手順
+
+### Day 02: Add nginx & Test bootc upgrade / nginx 組み込みとアップグレード体験
+
+- [Day02.md](./Day02.md) — English: nginx and `bootc switch` / `rollback` usage  
+- [Day02_ja.md](./Day02_ja.md) — 日本語：nginx 組み込み、`switch` / `rollback` の操作確認
+
+---
+
+## Purpose / リポジトリの目的
+
+- Demonstrate **bootable container image workflows** with RHEL 9.5
+- Provide bilingual (EN/JA) technical documentation
+- Serve as a base for future MicroShift / edge computing demos
+
+RHEL 9.5 を用いた **OS イメージベースの展開手法** を検証し、日本語と英語の両言語で手順を記録・公開しています。
 
