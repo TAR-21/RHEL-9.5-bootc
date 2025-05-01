@@ -71,6 +71,7 @@ podman push quay.io/USERNAME/custom-rhel95-bootc:1.0.0
 ```
 
 > `USERNAME` は自分の quay.io ユーザー名に置き換えてください。
+> quay.ioの管理画面から作成されたリポジトリをpublicに変更して下さい。
 
 ---
 
