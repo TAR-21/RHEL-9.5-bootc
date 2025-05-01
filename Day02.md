@@ -106,7 +106,7 @@ curl http://localhost
 ```
 
 ---
-##### Cause and On-the-Spot Fix for Apache Startup Failure (bootc Environment)
+#### Cause and On-the-Spot Fix for Apache Startup Failure (bootc Environment)
 
 ##### Problem Summary
 
