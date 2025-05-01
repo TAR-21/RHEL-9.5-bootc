@@ -111,9 +111,9 @@ curl http://localhost
 → httpd のindexページが表示されれば成功です。
 
 ---
-# Apache 起動失敗の原因とその場での復旧手順（bootc 環境向け）
+#### Apache 起動失敗の原因とその場での復旧手順（bootc 環境向け）
 
-## 問題の概要
+##### 問題の概要
 
 Apache HTTP サーバーが `systemctl start httpd` 時に以下のエラーで起動に失敗します：
 
@@ -126,21 +126,21 @@ AH00014: Configuration check failed
 
 ---
 
-## 原因の詳細
+##### 原因の詳細
 
 - `/etc/httpd/logs/` は本来 `/var/log/httpd` を指すシンボリックリンクですが、bootc や OSTree ベースの環境では `/var` が揮発的で再起動時に消えるため、**シンボリックリンクやログディレクトリが失われます**。
 - その結果、Apache がログ出力先を見つけられずに起動できなくなります。
 
 ---
 
-## その場での復旧手順
+##### その場での復旧手順
 
 ```bash
 sudo mkdir -p /var/log/httpd
 sudo ln -s /var/log/httpd /etc/httpd/logs
 sudo chown -R apache:apache /var/log/httpd
 
-# 設定ファイルチェックと再起動
+##### 設定ファイルチェックと再起動
 sudo httpd -t
 sudo systemctl restart httpd
 ```
