@@ -1,13 +1,13 @@
 # bootc upgrade / rollback scenario with httpd (RHEL 9.5)
 
-This guide walks through how to build a custom bootc image with httpd, deploy it to a bare-metal system, and test both `bootc switch` and `rpm-ostree rollback`.
+This guide walks through how to build a custom bootc image with httpd, deploy it to a bare-metal system, and test both `bootc switch` and `bootc rollback`.
 
 ## Overview
 
 You will:
 - Build a custom bootc image (`v2.0.0`) with httpd pre-installed
 - Deploy it to a bootc-installed machine using `bootc switch`
-- Test rollback to a previous version using `rpm-ostree rollback`
+- Test rollback to a previous version using `bootc rollback`
 
 ---
 
@@ -108,7 +108,7 @@ curl http://localhost
 ### Step 7: Roll back to previous version
 
 ```bash
-sudo rpm-ostree rollback
+sudo bootc rollback
 sudo systemctl reboot
 ```
 
