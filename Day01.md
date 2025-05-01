@@ -71,6 +71,7 @@ podman push quay.io/USERNAME/custom-rhel95-bootc:1.0.0
 ```
 
 > Replace `USERNAME` with your actual quay.io username.
+> Please change the repository created on Quay.io to public from the management interface.
 
 ---
 
