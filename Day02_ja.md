@@ -108,7 +108,7 @@ systemctl status httpd
 curl http://localhost
 ```
 
-→ httpd のデフォルトページが表示されれば成功です。
+→ httpd のindexページが表示されれば成功です。
 
 ---
 
