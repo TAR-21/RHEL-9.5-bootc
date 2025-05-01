@@ -20,7 +20,7 @@ mkdir -p ~/rhel9.5-imagemode-v2
 cd ~/rhel9.5-imagemode-v2
 ```
 
-### Step 2: Create `Containerfile` for version 2.0.0
+### Step 2: Create Containerfile for version 2.0.0
 
 Save as: `Containerfile`
 
