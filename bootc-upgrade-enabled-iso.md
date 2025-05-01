@@ -1,4 +1,4 @@
-# `bootc upgrade` 対応のための ISO ビルド設定
+# bootc upgrade 対応のための ISO ビルド設定
 
 ## なぜ `bootc switch` を使う必要があるのか？
 
