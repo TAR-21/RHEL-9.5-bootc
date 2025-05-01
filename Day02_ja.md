@@ -23,7 +23,7 @@ mkdir -p ~/rhel9.5-imagemode-v2
 cd ~/rhel9.5-imagemode-v2
 ```
 
-### ステップ 2：`Containerfile` を作成（バージョン 2.0.0）
+### ステップ 2：Containerfile を作成（バージョン 2.0.0）
 
 ファイル名：`Containerfile`
 
