@@ -1,11 +1,11 @@
-# bootc upgrade / rollback scenario with nginx (RHEL 9.5)
+# bootc upgrade / rollback scenario with httpd (RHEL 9.5)
 
-This guide walks through how to build a custom bootc image with nginx, deploy it to a bare-metal system, and test both `bootc switch` and `rpm-ostree rollback`.
+This guide walks through how to build a custom bootc image with httpd, deploy it to a bare-metal system, and test both `bootc switch` and `rpm-ostree rollback`.
 
 ## Overview
 
 You will:
-- Build a custom bootc image (`v2.0.0`) with nginx pre-installed
+- Build a custom bootc image (`v2.0.0`) with httpd pre-installed
 - Deploy it to a bootc-installed machine using `bootc switch`
 - Test rollback to a previous version using `rpm-ostree rollback`
 
@@ -98,10 +98,10 @@ sudo bootc switch quay.io/<USERNAME>/custom-rhel95-bootc:2.0.0
 sudo systemctl reboot
 ```
 
-### Step 6: Validate nginx service
+### Step 6: Validate httpd service
 
 ```bash
-systemctl status nginx
+systemctl status httpd
 curl http://localhost
 ```
 
