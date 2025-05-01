@@ -1,6 +1,6 @@
 # bootc upgrade / rollback シナリオ（httpd 組み込み、RHEL 9.5 ベース）
 
-このドキュメントは、httpd を組み込んだ bootc イメージ（v2.0.0）を作成し、ベアメタル環境に適用して `bootc switch` と `rpm-ostree rollback` の動作を体験する手順をまとめたものです。
+このドキュメントは、httpd を組み込んだ bootc イメージ（v2.0.0）を作成し、ベアメタル環境に適用して `bootc switch` と `sudo bootc rollback` の動作を体験する手順をまとめたものです。
 
 ---
 
@@ -10,7 +10,7 @@
 
 - httpd を含む bootc イメージ（v2.0.0）をビルド
 - bootc 環境で `bootc switch` による切り替えを実施
-- `rpm-ostree rollback` によるバージョン復元を体験
+- `sudo bootc rollback` によるバージョン復元を体験
 
 ---
 
@@ -115,7 +115,7 @@ curl http://localhost
 ### ステップ 7：前のバージョンに戻す（rollback）
 
 ```bash
-sudo rpm-ostree rollback
+sudo sudo bootc rollback
 sudo systemctl reboot
 ```
 
