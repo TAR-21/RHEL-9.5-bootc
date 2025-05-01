@@ -32,24 +32,33 @@ cd ~/rhel9.5-imagemode
 
 `Containerfile` を以下の内容で作成します：
 
-```Dockerfile
+```Containerfile
 FROM registry.redhat.io/rhel9/rhel-bootc:latest
 
-RUN rpm-ostree install \
+# Install required packages
+RUN dnf install -y \
     NetworkManager \
     openssh-server && \
-    useradd demo && echo "demo:redhat" | chpasswd && \
+    dnf clean all
+
+# Set up user, password, sudo privileges, hostname, and enable SSH
+RUN useradd demo && echo "demo:redhat" | chpasswd && \
     usermod -aG wheel demo && \
     echo "%wheel ALL=(ALL) NOPASSWD: ALL" >> /etc/sudoers && \
-    systemctl enable sshd && \
     echo "bootc-demo-v1" > /etc/hostname && \
-    rpm-ostree cleanup -m && \
-    ostree container commit
+    systemctl enable sshd
 
+# Verify the container image is compatible with bootc
+RUN bootc container lint
+
+# Image metadata
 LABEL bootc-image="true"
 LABEL org.opencontainers.image.title="custom-rhel95-bootc"
 LABEL org.opencontainers.image.version="1.0.0"
+
+# Start systemd when the image boots
 CMD ["/usr/lib/systemd/systemd"]
+
 ```
 
 ---
