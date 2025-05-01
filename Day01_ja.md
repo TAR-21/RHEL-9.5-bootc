@@ -32,7 +32,7 @@ cd ~/rhel9.5-imagemode
 
 `Containerfile` を以下の内容で作成します：
 
-```Containerfile
+```Dockerfile
 FROM registry.redhat.io/rhel9/rhel-bootc:latest
 
 # Install required packages
