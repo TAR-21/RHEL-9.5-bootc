@@ -1,6 +1,6 @@
-# bootc upgrade / rollback シナリオ（nginx 組み込み、RHEL 9.5 ベース）
+# bootc upgrade / rollback シナリオ（httpd 組み込み、RHEL 9.5 ベース）
 
-このドキュメントは、nginx を組み込んだ bootc イメージ（v2.0.0）を作成し、ベアメタル環境に適用して `bootc switch` と `rpm-ostree rollback` の動作を体験する手順をまとめたものです。
+このドキュメントは、httpd を組み込んだ bootc イメージ（v2.0.0）を作成し、ベアメタル環境に適用して `bootc switch` と `rpm-ostree rollback` の動作を体験する手順をまとめたものです。
 
 ---
 
@@ -8,7 +8,7 @@
 
 以下の操作を体験できます：
 
-- nginx を含む bootc イメージ（v2.0.0）をビルド
+- httpd を含む bootc イメージ（v2.0.0）をビルド
 - bootc 環境で `bootc switch` による切り替えを実施
 - `rpm-ostree rollback` によるバージョン復元を体験
 
@@ -101,14 +101,14 @@ sudo bootc switch quay.io/<USERNAME>/custom-rhel95-bootc:2.0.0
 sudo systemctl reboot
 ```
 
-### ステップ 6：nginx が起動しているか確認
+### ステップ 6：httpd が起動しているか確認
 
 ```bash
-systemctl status nginx
+systemctl status httpd
 curl http://localhost
 ```
 
-→ nginx のデフォルトページが表示されれば成功です。
+→ httpd のデフォルトページが表示されれば成功です。
 
 ---
 
