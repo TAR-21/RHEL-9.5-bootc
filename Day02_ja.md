@@ -133,7 +133,7 @@ AH00014: Configuration check failed
 
 ---
 
-##### その場での復旧手順
+##### 復旧手順
 
 ```bash
 sudo mkdir -p /var/log/httpd
