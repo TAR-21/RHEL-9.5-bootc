@@ -10,7 +10,7 @@
 
 ```
 bootc upgrade
-→ エラー：アップグレード元のイメージが不明
+→ Fetched layers: 0 B in 10 seconds (0 B/s)                                                                                        No update available.
 ```
 
 ---
