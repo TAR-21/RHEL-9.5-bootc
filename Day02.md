@@ -105,6 +105,40 @@ systemctl status httpd
 curl http://localhost
 ```
 
+
+##### Cause and On-the-Spot Fix for Apache Startup Failure (bootc Environment)
+
+##### Problem Summary
+
+Apache HTTP Server fails to start when running `systemctl start httpd` with the following error:
+
+```
+AH02291: Cannot access directory '/etc/httpd/logs/' for main error log
+AH00014: Configuration check failed
+```
+
+This means Apache is unable to access the log directory it expects to use.
+
+
+##### Root Cause
+
+- `/etc/httpd/logs/` is supposed to be a symbolic link to `/var/log/httpd`.
+- In bootc or OSTree-based systems, `/var` is ephemeral and recreated at each boot.
+- Therefore, the symbolic link or the log directory may not exist after a reboot, causing Apache to fail when trying to write logs.
+
+
+##### On-the-Spot Recovery Steps
+
+```bash
+sudo mkdir -p /var/log/httpd
+sudo ln -s /var/log/httpd /etc/httpd/logs
+sudo chown -R apache:apache /var/log/httpd
+
+# Check Apache config and restart
+sudo httpd -t
+sudo systemctl restart httpd
+```
+
 ### Step 7: Roll back to previous version
 
 ```bash
