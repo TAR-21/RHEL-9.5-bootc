@@ -35,21 +35,30 @@ Create a file named `Containerfile` with the following content:
 ```Dockerfile
 FROM registry.redhat.io/rhel9/rhel-bootc:latest
 
-RUN rpm-ostree install \
+# Install required packages using DNF
+RUN dnf install -y \
     NetworkManager \
     openssh-server && \
-    useradd demo && echo "demo:redhat" | chpasswd && \
+    dnf clean all
+
+# Create demo user, set password, configure sudo, hostname, and enable SSH
+RUN useradd demo && echo "demo:redhat" | chpasswd && \
     usermod -aG wheel demo && \
     echo "%wheel ALL=(ALL) NOPASSWD: ALL" >> /etc/sudoers && \
-    systemctl enable sshd && \
     echo "bootc-demo-v1" > /etc/hostname && \
-    rpm-ostree cleanup -m && \
-    ostree container commit
+    systemctl enable sshd
 
+# Lint the container image to ensure it conforms to bootc requirements
+RUN bootc container lint
+
+# Image metadata
 LABEL bootc-image="true"
 LABEL org.opencontainers.image.title="custom-rhel95-bootc"
 LABEL org.opencontainers.image.version="1.0.0"
+
+# Set systemd as the default entrypoint
 CMD ["/usr/lib/systemd/systemd"]
+
 ```
 
 ---
