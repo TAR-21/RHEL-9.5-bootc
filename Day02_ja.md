@@ -140,7 +140,7 @@ sudo mkdir -p /var/log/httpd
 sudo ln -s /var/log/httpd /etc/httpd/logs
 sudo chown -R apache:apache /var/log/httpd
 
-##### 設定ファイルチェックと再起動
+# 設定ファイルチェックと再起動
 sudo httpd -t
 sudo systemctl restart httpd
 ```
