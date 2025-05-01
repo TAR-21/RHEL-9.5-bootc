@@ -10,7 +10,7 @@
 
 ```
 bootc upgrade
-→ Fetched layers: 0 B in 10 seconds (0 B/s)                                                                                        No update available.
+→ Fetched layers: 0 B in 10 seconds (0 B/s) No update available.
 ```
 
 ---
