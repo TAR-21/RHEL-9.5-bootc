@@ -40,7 +40,7 @@ Applications, user data, and logs should be placed and stored in **writable dire
     * Enables flexible application deployment and updates while maintaining the OS's immutability.
     * Application dependencies are encapsulated within the container, preventing impact on the host OS.
     * Simplifies application lifecycle management (deployment, updates, rollbacks).
-* **Implementation**: Utilize Podman (for single devices) or MicroShift/Kubernetes (for multiple containers/devices).
+* **Implementation**: Utilize Podman (for single devices) or MicroShift.
 
 ## 4. Designing for Persistent Storage
 
