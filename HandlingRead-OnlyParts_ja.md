@@ -44,7 +44,7 @@ OSTree（例: Red Hat Enterprise Linux for Edge の基盤技術）は、OSの**�
 
 アプリケーションが生成するデータや、再起動後も保持したいデータがある場合、永続ストレージを確保します。
 
-* **Kubernetes (MicroShift) の場合**: Persistent Volume (PV) / Persistent Volume Claim (PVC) や Host Path Volume を使用し、ホストOS上の `/var` などの書き込み可能なディレクトリにデータを永続化します。
+* **MicroShiftの場合**: Persistent Volume (PV) / Persistent Volume Claim (PVC) や Host Path Volume を使用し、ホストOS上の `/var` などの書き込み可能なディレクトリにデータを永続化します。
 * **Podman の場合**: ボリュームマウント (`podman run -v /host/path:/container/path ...`) を使用します。
 
 ## 5. 構成管理の自動化
