@@ -46,7 +46,7 @@ Applications, user data, and logs should be placed and stored in **writable dire
 
 If applications generate data or require data to persist across reboots or updates, persistent storage must be designed.
 
-* **For Kubernetes (MicroShift)**:
+* **For MicroShift**:
     * **Persistent Volume (PV) / Persistent Volume Claim (PVC)**: Utilize the device's local storage (under `/var`, for example) as a Kubernetes persistent volume and mount it to containers.
     * **Host Path Volume**: Directly map a path inside the container to a writable directory on the host OS, such as `/var`.
 * **For Podman**:
