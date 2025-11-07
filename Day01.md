@@ -86,6 +86,7 @@ sudo podman run --rm -it --privileged \
   registry.redhat.io/rhel9/bootc-image-builder:latest \
   --type iso \
   --output /output \
+  --progress=verbose \
   quay.io/USERNAME/custom-rhel95-bootc:1.0.0
 ```
 
